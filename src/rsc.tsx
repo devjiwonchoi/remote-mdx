@@ -1,34 +1,7 @@
-/**
- * Copyright (c) HashiCorp, Inc.
- * SPDX-License-Identifier: MPL-2.0
- */
-
-import React from 'react';
-import { MDXProvider } from '@mdx-js/react';
-import { jsxRuntime } from './jsx-runtime';
-import type { VFileCompatible } from 'vfile';
-import type { MDXRemoteSerializeResult, SerializeOptions } from './types';
-
+import jsxRuntime from 'react/jsx-runtime';
 import { serialize } from './serialize';
-
-export type MDXRemoteProps = {
-  source: VFileCompatible;
-  options?: SerializeOptions;
-  /**
-   * An object mapping names to React components.
-   * The key used will be the name accessible to MDX.
-   *
-   * For example: `{ ComponentName: Component }` will be accessible in the MDX as `<ComponentName/>`.
-   */
-  components?: React.ComponentProps<typeof MDXProvider>['components'];
-};
-
-export { MDXRemoteSerializeResult };
-
-export type CompileMDXResult<TFrontmatter = Record<string, unknown>> = {
-  content: React.ReactElement;
-  frontmatter: TFrontmatter;
-};
+import type { ElementType } from 'react';
+import type { MDXRemoteProps, CompileMDXResult } from './types';
 
 export async function compileMDX<TFrontmatter = Record<string, unknown>>({
   source,
@@ -67,7 +40,7 @@ export async function compileMDX<TFrontmatter = Record<string, unknown>>({
     keys.concat(`${compiledSource}`)
   );
 
-  const Content: React.ElementType = hydrateFn.apply(hydrateFn, values).default;
+  const Content: ElementType = hydrateFn.apply(hydrateFn, values).default;
 
   return {
     content: <Content components={components} />,

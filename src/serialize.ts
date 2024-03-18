@@ -1,8 +1,3 @@
-/**
- * Copyright (c) HashiCorp, Inc.
- * SPDX-License-Identifier: MPL-2.0
- */
-
 import { compile, CompileOptions } from '@mdx-js/mdx';
 import { VFile, VFileCompatible } from 'vfile';
 import { matter } from 'vfile-matter';
