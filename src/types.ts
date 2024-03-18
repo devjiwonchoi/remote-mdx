@@ -1,9 +1,7 @@
-/**
- * Copyright (c) HashiCorp, Inc.
- * SPDX-License-Identifier: MPL-2.0
- */
-
-import { CompileOptions } from '@mdx-js/mdx'
+import type { ComponentProps, ReactElement } from 'react'
+import type { CompileOptions } from '@mdx-js/mdx'
+import type { MDXProvider } from '@mdx-js/react'
+import type { VFileCompatible } from 'vfile'
 
 export interface SerializeOptions {
   /**
@@ -26,7 +24,7 @@ export interface SerializeOptions {
  */
 export type MDXRemoteSerializeResult<
   TScope = Record<string, unknown>,
-  TFrontmatter = Record<string, unknown>
+  TFrontmatter = Record<string, unknown>,
 > = {
   /**
    * The compiledSource, generated from next-mdx-remote/serialize
@@ -42,5 +40,22 @@ export type MDXRemoteSerializeResult<
   /**
    * If parseFrontmatter was set to true, contains any parsed frontmatter found in the MDX source.
    */
+  frontmatter: TFrontmatter
+}
+
+export type MDXRemoteProps = {
+  source: VFileCompatible
+  options?: SerializeOptions
+  /**
+   * An object mapping names to React components.
+   * The key used will be the name accessible to MDX.
+   *
+   * For example: `{ ComponentName: Component }` will be accessible in the MDX as `<ComponentName/>`.
+   */
+  components?: ComponentProps<typeof MDXProvider>['components']
+}
+
+export type CompileMDXResult<TFrontmatter = Record<string, unknown>> = {
+  content: ReactElement
   frontmatter: TFrontmatter
 }
