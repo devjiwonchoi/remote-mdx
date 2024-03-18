@@ -27,7 +27,7 @@ export type MDXRemoteSerializeResult<
   TFrontmatter = Record<string, unknown>,
 > = {
   /**
-   * The compiledSource, generated from next-mdx-remote/serialize
+   * The compiledSource, generated from serialize
    */
   compiledSource: string
   /**

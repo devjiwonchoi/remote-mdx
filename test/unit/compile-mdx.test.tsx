@@ -1,4 +1,4 @@
-import { compileMDX } from '../../src/rsc'
+import { compileMDX } from 'src'
 
 const source = `---\ntitle: Hello\n---\n# World`
 describe('compileMDX', () => {

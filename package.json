@@ -20,6 +20,7 @@
     "@swc/jest": "^0.2.36",
     "@types/babel__code-frame": "^7.0.6",
     "@types/jest": "^29.5.12",
+    "@types/mdx": "^2.0.11",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^18.0.11",
@@ -41,7 +42,8 @@
               "react": {
                 "runtime": "automatic"
               }
-            }
+            },
+            "baseUrl": "."
           }
         }
       ]

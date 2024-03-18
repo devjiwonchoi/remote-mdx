@@ -49,9 +49,8 @@ export async function compileMDX<TFrontmatter = Record<string, unknown>>({
 }
 
 /**
- * Renders compiled source from next-mdx-remote/serialize.
+ * Renders compiled source from serialize.
  */
 export async function MDXRemote(props: MDXRemoteProps) {
-  const { content } = await compileMDX(props)
-  return content
+  return (await compileMDX(props)).content
 }
