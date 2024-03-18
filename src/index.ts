@@ -1,4 +1,5 @@
-export { MDXRemote, compileMDX } from './rsc'
+export { MDXRemote } from './rcc'
+export { MDXRemote as MDXRemoteRSC, compileMDX } from './rsc'
 export { serialize } from './serialize'
 export type {
   SerializeOptions,

@@ -1,8 +1,6 @@
 {
   "name": "remote-mdx",
   "version": "0.0.1",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "bunchee",
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
@@ -66,5 +64,7 @@
   ],
   "license": "MIT",
   "author": "Jiwon Choi",
-  "repository": "https://github.com/devjiwonchoi/remote-mdx.git"
+  "repository": "https://github.com/devjiwonchoi/remote-mdx.git",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }
