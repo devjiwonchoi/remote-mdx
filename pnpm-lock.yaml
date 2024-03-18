@@ -31,9 +31,6 @@ devDependencies:
   '@types/jest':
     specifier: ^29.5.12
     version: 29.5.12
-  '@types/mdx':
-    specifier: ^2.0.11
-    version: 2.0.11
   '@types/node':
     specifier: ^16.18.90
     version: 16.18.90
@@ -1281,6 +1278,7 @@ packages:
 
   /@types/mdx@2.0.11:
     resolution: {integrity: sha512-HM5bwOaIQJIQbAYfax35HCKxx7a3KrK3nBtIqJgSOitivTD1y3oW9P3rxY9RkXYPUk7y/AjAohfHKmFpGE79zw==}
+    dev: false
 
   /@types/ms@0.7.34:
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
