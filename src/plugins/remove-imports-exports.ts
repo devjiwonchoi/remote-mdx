@@ -1,5 +1,5 @@
-import { remove } from 'unist-util-remove';
+import { remove } from 'unist-util-remove'
 
 export function removeImportsExportsPlugin() {
-  return (tree: any) => remove(tree, 'mdxjsEsm');
+  return (tree: any) => remove(tree, 'mdxjsEsm')
 }

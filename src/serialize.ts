@@ -1,21 +1,21 @@
-import { compile, CompileOptions } from '@mdx-js/mdx';
-import { VFile, VFileCompatible } from 'vfile';
-import { matter } from 'vfile-matter';
-import { removeImportsExportsPlugin } from './plugins/remove-imports-exports';
-import type { MDXRemoteSerializeResult, SerializeOptions } from './types';
+import { compile, CompileOptions } from '@mdx-js/mdx'
+import { VFile, VFileCompatible } from 'vfile'
+import { matter } from 'vfile-matter'
+import { removeImportsExportsPlugin } from './plugins/remove-imports-exports'
+import type { MDXRemoteSerializeResult, SerializeOptions } from './types'
 
 function getCompileOptions(
   mdxOptions: SerializeOptions['mdxOptions'] = {},
   rsc: boolean = false
 ): CompileOptions {
-  const areImportsEnabled = mdxOptions?.useDynamicImport;
+  const areImportsEnabled = mdxOptions?.useDynamicImport
 
   // don't modify the original object when adding our own plugin
   // this allows code to reuse the same options object
   const remarkPlugins = [
     ...(mdxOptions.remarkPlugins || []),
     ...(areImportsEnabled ? [] : [removeImportsExportsPlugin]),
-  ];
+  ]
 
   return {
     ...mdxOptions,
@@ -23,7 +23,7 @@ function getCompileOptions(
     outputFormat: 'function-body',
     // Disable the importSource option for RSC to ensure there's no `useMDXComponents` implemented.
     providerImportSource: rsc ? undefined : '@mdx-js/react',
-  };
+  }
 }
 
 /**
@@ -31,7 +31,7 @@ function getCompileOptions(
  */
 export async function serialize<
   TScope = Record<string, unknown>,
-  TFrontmatter = Record<string, unknown>
+  TFrontmatter = Record<string, unknown>,
 >(
   source: VFileCompatible,
   {
@@ -41,26 +41,26 @@ export async function serialize<
   }: SerializeOptions = {},
   rsc: boolean = false
 ): Promise<MDXRemoteSerializeResult<TScope, TFrontmatter>> {
-  const vfile = new VFile(source);
+  const vfile = new VFile(source)
 
   // makes frontmatter available via vfile.data.matter
   if (parseFrontmatter) {
-    matter(vfile, { strip: true });
+    matter(vfile, { strip: true })
   }
 
-  let compiledMdx: VFile;
+  let compiledMdx: VFile
 
   try {
-    compiledMdx = await compile(vfile, getCompileOptions(mdxOptions, rsc));
+    compiledMdx = await compile(vfile, getCompileOptions(mdxOptions, rsc))
   } catch (error: any) {
-    throw new Error(`${error}\n${String(vfile)}`);
+    throw new Error(`${error}\n${String(vfile)}`)
   }
 
-  let compiledSource = String(compiledMdx);
+  let compiledSource = String(compiledMdx)
 
   return {
     compiledSource,
     frontmatter: (vfile.data.matter ?? {}) as TFrontmatter,
     scope: scope as TScope,
-  };
+  }
 }

@@ -2,12 +2,10 @@
   "name": "remote-mdx",
   "version": "0.0.0",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "license": "MIT",
-  "author": "Jiwon Choi",
-  "repository": "https://github.com/devjiwonchoi/remote-mdx.git",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "bunchee"
+    "build": "bunchee -m",
+    "lint-fix": "prettier --write !pnpm-lock.yaml ."
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.2.1",
@@ -21,12 +19,22 @@
     "@types/react": "^17.0.33",
     "@types/react-dom": "^18.0.11",
     "bunchee": "^4.4.8",
+    "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.4.4",
     "unist-util-remove": "^3.1.0"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "trailingComma": "es5"
+  },
   "files": [
     "dist"
-  ]
+  ],
+  "license": "MIT",
+  "author": "Jiwon Choi",
+  "repository": "https://github.com/devjiwonchoi/remote-mdx.git"
 }
