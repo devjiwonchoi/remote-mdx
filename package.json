@@ -4,8 +4,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "bunchee -m",
-    "lint-fix": "prettier --write !pnpm-lock.yaml ."
+    "build": "bunchee",
+    "lint-fix": "prettier --write !pnpm-lock.yaml .",
+    "prepublishOnly": "pnpm build -m"
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.2.1",

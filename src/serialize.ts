@@ -1,7 +1,9 @@
-import { compile, CompileOptions } from '@mdx-js/mdx'
-import { VFile, VFileCompatible } from 'vfile'
+import { compile } from '@mdx-js/mdx'
+import { VFile } from 'vfile'
 import { matter } from 'vfile-matter'
 import { removeImportsExportsPlugin } from './plugins/remove-imports-exports'
+import type { CompileOptions } from '@mdx-js/mdx'
+import type { VFileCompatible } from 'vfile'
 import type { MDXRemoteSerializeResult, SerializeOptions } from './types'
 
 function getCompileOptions(
