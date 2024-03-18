@@ -1,13 +1,13 @@
 import { jsxRuntime } from './jsx-runtime'
 import { serialize } from './serialize'
 import type { ElementType } from 'react'
-import type { MDXRemoteProps, CompileMDXResult } from './types'
+import type { MDXRemoteRSCProps, CompileMDXResult } from './types'
 
 export async function compileMDX<TFrontmatter = Record<string, unknown>>({
   source,
   options,
   components = {},
-}: MDXRemoteProps): Promise<CompileMDXResult<TFrontmatter>> {
+}: MDXRemoteRSCProps): Promise<CompileMDXResult<TFrontmatter>> {
   const { compiledSource, frontmatter, scope } = await serialize<
     Record<string, unknown>,
     TFrontmatter
@@ -51,6 +51,6 @@ export async function compileMDX<TFrontmatter = Record<string, unknown>>({
 /**
  * Renders compiled source from serialize.
  */
-export async function MDXRemote(props: MDXRemoteProps) {
+export async function MDXRemoteRSC(props: MDXRemoteRSCProps) {
   return (await compileMDX(props)).content
 }

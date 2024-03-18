@@ -43,7 +43,7 @@ export type MDXRemoteSerializeResult<
   frontmatter: TFrontmatter
 }
 
-export type MDXRemoteProps = {
+export type MDXRemoteRSCProps = {
   source: VFileCompatible
   options?: SerializeOptions
   /**
@@ -54,6 +54,24 @@ export type MDXRemoteProps = {
    */
   components?: ComponentProps<typeof MDXProvider>['components']
 }
+
+export type MDXRemoteProps<
+  TScope = Record<string, unknown>,
+  TFrontmatter = Record<string, unknown>,
+> = MDXRemoteSerializeResult<TScope, TFrontmatter> & {
+  /**
+   * A object mapping names to React components.
+   * The key used will be the name accessible to
+   *
+   * For example: `{ ComponentName: Component }` will be accessible in the MDX as `<ComponentName/>`.
+   */
+  components?: React.ComponentProps<typeof MDXProvider>['components']
+  /**
+   * Determines whether or not the content should be hydrated asynchronously, or "lazily"
+   */
+  lazy?: boolean
+}
+
 
 export type CompileMDXResult<TFrontmatter = Record<string, unknown>> = {
   content: ReactElement
