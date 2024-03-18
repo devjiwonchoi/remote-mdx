@@ -1,4 +1,4 @@
-import jsxRuntime from 'react/jsx-runtime';
+import { jsxRuntime } from './jsx-runtime';
 import { serialize } from './serialize';
 import type { ElementType } from 'react';
 import type { MDXRemoteProps, CompileMDXResult } from './types';
