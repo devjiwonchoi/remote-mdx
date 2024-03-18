@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react'
 import { jsxRuntime } from './jsx-runtime'
-import mdx, { MDXProvider } from '@mdx-js/react'
+import * as mdx from '@mdx-js/react'
 import './idle-callback-polyfill'
 import type { MDXRemoteSerializeResult } from './types'
 
@@ -34,7 +34,7 @@ export type MDXRemoteProps<
    *
    * For example: `{ ComponentName: Component }` will be accessible in the MDX as `<ComponentName/>`.
    */
-  components?: React.ComponentProps<typeof MDXProvider>['components']
+  components?: React.ComponentProps<typeof mdx.MDXProvider>['components']
   /**
    * Determines whether or not the content should be hydrated asynchronously, or "lazily"
    */
@@ -104,9 +104,9 @@ export function MDXRemote<TScope, TFrontmatter>({
   // wrapping the content with MDXProvider will allow us to customize the standard
   // markdown components (such as "h1" or "a") with the "components" object
   const content = (
-    <MDXProvider components={components}>
+    <mdx.MDXProvider components={components}>
       <Content />
-    </MDXProvider>
+    </mdx.MDXProvider>
   )
 
   // If lazy = true, we need to render a wrapping div to preserve the same markup structure that was SSR'd
