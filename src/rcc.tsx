@@ -44,7 +44,7 @@ export type MDXRemoteProps<
 export { MDXRemoteSerializeResult }
 
 /**
- * Renders compiled source from next-mdx-remote/serialize.
+ * Renders compiled source from serialize.
  */
 export function MDXRemote<TScope, TFrontmatter>({
   compiledSource,
