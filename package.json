@@ -36,14 +36,6 @@
   "license": "MIT",
   "author": "Jiwon Choi",
   "repository": "https://github.com/devjiwonchoi/remote-mdx.git",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    "./rsc": {
-      "default": "./dist/rsc.js"
-    },
-    "./serialize": {
-      "default": "./dist/serialize.js"
-    }
-  }
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }
