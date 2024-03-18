@@ -51,6 +51,12 @@ export async function compileMDX<TFrontmatter = Record<string, unknown>>({
 /**
  * Renders compiled source from serialize.
  */
-export async function MDXRemoteRSC(props: MDXRemoteRSCProps) {
+export async function MDXRemote(props: MDXRemoteRSCProps) {
   return (await compileMDX(props)).content
 }
+
+export type {
+  MDXRemoteSerializeResult,
+  CompileMDXResult,
+  MDXRemoteRSCProps as MDXRemoteProps,
+} from './types'

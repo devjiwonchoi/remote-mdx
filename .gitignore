@@ -1,4 +1,5 @@
 node_modules/
 dist/
+rsc/
 .DS_Store
 *.tgz
