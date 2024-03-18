@@ -68,7 +68,8 @@
   "types": "./dist/index.d.ts",
   "exports": {
     "./rsc": {
-      "default": "./rsc/index.js"
+      "default": "./rsc/index.js",
+      "types": "./rsc/index.d.ts"
     }
   }
 }
