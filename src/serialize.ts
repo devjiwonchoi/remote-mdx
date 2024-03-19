@@ -54,7 +54,7 @@ export async function serialize<
 
   try {
     compiledMdx = await compile(vfile, getCompileOptions(mdxOptions, rsc))
-  } catch (error: any) {
+  } catch (error) {
     throw new Error(`${error}\n${String(vfile)}`)
   }
 
