@@ -1,5 +1,9 @@
 node_modules/
+
+# output
 dist/
 rsc/
+serialize/
+
 .DS_Store
 *.tgz

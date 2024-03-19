@@ -1,6 +1,7 @@
 {
   "name": "remote-mdx",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "type": "module",
   "scripts": {
     "build": "bunchee",
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
@@ -59,24 +60,27 @@
   },
   "files": [
     "dist",
-    "rsc"
+    "rsc",
+    "serialize"
   ],
   "license": "MIT",
   "author": "Jiwon Choi",
   "repository": "https://github.com/devjiwonchoi/remote-mdx.git",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./rsc": {
-      "import": "./rsc/index.mjs",
-      "require": "./rsc/index.js",
+      "import": "./rsc/index.js",
       "types": "./rsc/index.d.ts"
+    },
+    "./serialize": {
+      "import": "./serialize/index.js",
+      "types": "./serialize/index.d.ts"
     }
   }
 }
