@@ -1,7 +1,6 @@
 import { useEffect, useState, useMemo } from 'react'
-import { jsxRuntime } from './jsx-runtime'
 import * as mdx from '@mdx-js/react'
-import './idle-callback-polyfill'
+import { jsxRuntime } from './jsx-runtime'
 import type { MDXRemoteProps } from './types'
 
 // requestIdleCallback types found here: https://github.com/microsoft/TypeScript/issues/21309
@@ -24,6 +23,30 @@ declare global {
   }
 }
 
+function initIdleCallback() {
+  if (typeof window !== 'undefined') {
+    window.requestIdleCallback =
+      window.requestIdleCallback ||
+      function (cb) {
+        const start = Date.now()
+        return setTimeout(function () {
+          cb({
+            didTimeout: false,
+            timeRemaining: function () {
+              return Math.max(0, 50 - (Date.now() - start))
+            },
+          })
+        }, 1)
+      }
+
+    window.cancelIdleCallback =
+      window.cancelIdleCallback ||
+      function (id) {
+        clearTimeout(id)
+      }
+  }
+}
+
 /**
  * Renders compiled source from serialize.
  */
@@ -34,6 +57,7 @@ export function MDXRemote<TScope, TFrontmatter>({
   components = {},
   lazy,
 }: MDXRemoteProps<TScope, TFrontmatter>) {
+  initIdleCallback()
   const [isReadyToRender, setIsReadyToRender] = useState(
     !lazy || typeof window === 'undefined'
   )
