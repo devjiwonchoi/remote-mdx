@@ -4,11 +4,15 @@
 
 ## Why Another Remote MDX?
 
-The initial purpose of this fork was to work around [the issue with Next.js turbo](https://github.com/vercel/next.js/issues/63318) and I found some inefficiencies in the original package.
+The initial purpose of this fork was to work around [the issue with Next.js turbo](https://github.com/vercel/next.js/issues/63318), but I found some inefficiencies in the original package.
 
-I think it is always better to have a running mate or a competitive partner to enhance the quality of the product.
+After getting inspired by [this discussion](https://github.com/hashicorp/next-mdx-remote/discussions/437), I decided to maintain this fork as a separate package, and am planning to continuously sync with the original package.
 
-Inspired by [this discussion](https://github.com/hashicorp/next-mdx-remote/discussions/437), I have decided to maintain this fork as a separate package, and will continuously sync with the original package.
+## So... Why Should I Use This?
+
+- Package Size: **Reduced 50%** of the original package size.
+- Fully Typed: Does not depend on `allowJS` or `any` type.
+- Module: Native ESM, no internal `commonjs` resolution that breaks `--turbo`.
 
 ## Migrating from `next-mdx-remote`
 
