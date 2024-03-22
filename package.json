@@ -66,6 +66,18 @@
   "license": "MIT",
   "author": "Jiwon Choi",
   "repository": "https://github.com/devjiwonchoi/remote-mdx.git",
+  "keywords": [
+    "docs",
+    "documentation",
+    "jsx",
+    "markdown",
+    "md",
+    "mdx",
+    "nextjs",
+    "next-mdx-remote",
+    "react",
+    "remote"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
