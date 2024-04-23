@@ -3,7 +3,7 @@ import type { CompileOptions } from '@mdx-js/mdx'
 import type { MDXProvider } from '@mdx-js/react'
 import type { VFileCompatible } from 'vfile'
 
-export interface SerializeOptions {
+export type SerializeOptions = {
   /**
    * Pass-through variables for use in the MDX content
    */
@@ -71,7 +71,6 @@ export type MDXRemoteProps<
    */
   lazy?: boolean
 }
-
 
 export type CompileMDXResult<TFrontmatter = Record<string, unknown>> = {
   content: ReactElement
