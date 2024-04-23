@@ -59,4 +59,5 @@ export type {
   MDXRemoteSerializeResult,
   CompileMDXResult,
   MDXRemoteRSCProps as MDXRemoteProps,
+  SerializeOptions,
 } from './types'
