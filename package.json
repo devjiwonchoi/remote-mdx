@@ -1,7 +1,7 @@
 {
   "name": "remote-mdx",
   "description": "Use MDX in your React App",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "scripts": {
     "build": "bunchee",
@@ -31,6 +31,10 @@
     "react-dom": "^18.2.0",
     "typescript": "^5.4.2",
     "unist-util-remove": "^3.1.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.x <=18.x",
+    "react-dom": ">=16.x <=18.x"
   },
   "jest": {
     "transform": {
@@ -66,16 +70,16 @@
   "author": "Jiwon Choi",
   "repository": "https://github.com/devjiwonchoi/remote-mdx.git",
   "keywords": [
-    "mdx",
-    "remote",
-    "react",
-    "rsc",
-    "nextjs",
-    "next-mdx-remote",
     "md",
+    "mdx",
     "markdown",
     "frontmatter",
-    "vfile"
+    "remote",
+    "react",
+    "nextjs",
+    "vite",
+    "rsc",
+    "jsx"
   ],
   "exports": {
     ".": {
