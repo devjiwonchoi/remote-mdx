@@ -1,12 +1,13 @@
 {
   "name": "remote-mdx",
-  "version": "0.0.5",
+  "description": "Use MDX in your React App",
+  "version": "0.0.6",
   "type": "module",
   "scripts": {
     "build": "bunchee",
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js",
     "lint-fix": "prettier --write !pnpm-lock.yaml .",
-    "prepublishOnly": "pnpm build -m"
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.3.0",
@@ -59,40 +60,35 @@
     "trailingComma": "es5"
   },
   "files": [
-    "dist",
-    "rsc",
-    "serialize"
+    "dist"
   ],
   "license": "MIT",
   "author": "Jiwon Choi",
   "repository": "https://github.com/devjiwonchoi/remote-mdx.git",
   "keywords": [
-    "docs",
-    "documentation",
-    "jsx",
-    "markdown",
-    "md",
     "mdx",
+    "remote",
+    "react",
+    "rsc",
     "nextjs",
     "next-mdx-remote",
-    "react",
-    "remote"
+    "md",
+    "markdown",
+    "frontmatter",
+    "vfile"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./rsc": {
-      "import": "./rsc/index.js",
-      "types": "./rsc/index.d.ts"
+      "import": "./dist/rsc.js",
+      "types": "./dist/rsc.d.ts"
     },
     "./serialize": {
-      "import": "./serialize/index.js",
-      "types": "./serialize/index.d.ts"
+      "import": "./dist/serialize.js",
+      "types": "./dist/serialize.d.ts"
     }
   }
 }
