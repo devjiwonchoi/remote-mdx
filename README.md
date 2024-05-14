@@ -27,4 +27,7 @@ After getting inspired by [this discussion](https://github.com/hashicorp/next-md
 
 - import { MDXRemote } from 'next-mdx-remote/rsc'
 + import { MDXRemote } from 'remote-mdx/rsc'
+
+- import { compileMDX } from 'next-mdx-remote/rsc'
++ import { compileMDX } from 'remote-mdx/rsc'
 ```
