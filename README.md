@@ -1,6 +1,7 @@
-# remote-mdx
+# ~~remote-mdx~~
 
-> NOTE: This project is rapidly developed for stable `v1`, and may include a breaking change.
+> [!IMPORTANT]
+> **DISCLAIMER:** Please use [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) instead.
 
 ## Why Another Remote MDX?
 
